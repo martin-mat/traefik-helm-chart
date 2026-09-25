@@ -1,5 +1,7 @@
 # Traefik
 
+[![CNTi cert](https://github.com/traefik/traefik-helm-chart/actions/workflows/cnti.yml/badge.svg)](https://github.com/traefik/traefik-helm-chart/actions/workflows/cnti.yml)
+
 [Traefik](https://traefik.io/) is a modern HTTP reverse proxy and load balancer made to deploy microservices with ease.
 
 ## Introduction
