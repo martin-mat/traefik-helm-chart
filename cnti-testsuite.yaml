@@ -1,0 +1,19 @@
+---
+# CNTi Test Suite configuration for the Traefik chart in this repository.
+config_version: "v2"
+common:
+  container_names:
+    # Retained image tags used by the rolling update, downgrade and rollback
+    # tests; the chart's appVersion is the tag under test. The container is
+    # named after the release, cnti-traefik here.
+    - name: cnti-traefik
+      rolling_update_test_tag: "v3.7.12"
+      rolling_downgrade_test_tag: "v3.6.7"
+      rolling_version_change_test_tag: "v3.7.12"
+      rollback_from_tag: "v3.7.12"
+deployments:
+  helm_dirs:
+    - name: cnti
+      helm_directory: traefik
+      namespace: traefik-cnti
+      helm_values: --values ci/cnti-values.yaml

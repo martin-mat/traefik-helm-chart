@@ -1,0 +1,8 @@
+# Values for the CNTi Test Suite run (.github/workflows/cnti.yml).
+resources:
+  requests: {cpu: 100m, memory: 128Mi}
+  limits: {cpu: 500m, memory: 256Mi}
+# kind has no load balancer; nothing in the run needs an external address.
+service:
+  spec:
+    type: ClusterIP

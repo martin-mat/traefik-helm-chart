@@ -1,0 +1,28 @@
+name: CNTi cert
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cnti-cert
+  cancel-in-progress: false
+
+jobs:
+  cert:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: lfn-cnti/testsuite-action@v1
+        with:
+          # Pinned so a run is reproducible and a suite release is adopted on
+          # purpose; bump it after checking the release notes.
+          version: v2.0.0
+          cnf_config: cnti-testsuite.yaml
+          tests: cert
