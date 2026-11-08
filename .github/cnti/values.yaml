@@ -1,0 +1,4 @@
+# kind has no load balancer; nothing in the run needs an external address.
+service:
+  spec:
+    type: ClusterIP

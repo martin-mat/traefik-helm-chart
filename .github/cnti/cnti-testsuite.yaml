@@ -1,0 +1,9 @@
+# Fork only: CNTi configuration for the traefik chart at the repository's master.
+config_version: "v2"
+deployments:
+  helm_dirs:
+    - name: traefik
+      # Relative to this file.
+      helm_directory: ../../traefik
+      namespace: traefik-cnti
+      helm_values: -f .github/cnti/values.yaml
